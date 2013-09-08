@@ -2,7 +2,7 @@
 #define PICAM_H
 
 #include <QMainWindow>
-
+class CvCapture;
 namespace Ui {
 class PiCam;
 }
@@ -14,6 +14,7 @@ class PiCam : public QMainWindow
 public:
     explicit PiCam(QWidget *parent = 0);
     ~PiCam();
+    static CvCapture *captureDevice;
     
 private:
     Ui::PiCam *ui;

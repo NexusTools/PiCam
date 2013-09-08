@@ -20,3 +20,7 @@ HEADERS  += picam.h \
     camerawidget.h
 
 FORMS    += picam.ui
+
+INCLUDEPATH += /usr/local/include/opencv
+LIBS += -lopencv_core \
+        -lopencv_highgui

@@ -27,11 +27,11 @@
     <property name="title">
      <string>Camera</string>
     </property>
-    <addaction name="actionStart"/>
+    <addaction name="actionToggle"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
-  <action name="actionStart">
+  <action name="actionToggle">
    <property name="text">
     <string>Start</string>
    </property>

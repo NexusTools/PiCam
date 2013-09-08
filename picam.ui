@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>PiCam</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="CameraWidget" name="cameraWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -25,7 +25,7 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Camera</string>
     </property>
     <addaction name="actionStart"/>
    </widget>
@@ -35,12 +35,23 @@
    <property name="text">
     <string>Start</string>
    </property>
+   <property name="toolTip">
+    <string>Allows toggle of the camera output.</string>
+   </property>
    <property name="shortcut">
     <string>F1</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CameraWidget</class>
+   <extends>QWidget</extends>
+   <header>camerawidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

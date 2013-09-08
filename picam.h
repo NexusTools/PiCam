@@ -19,7 +19,8 @@ private:
     Ui::PiCam *ui;
 
 private slots:
-    void toggleCam();
+    void start();
+    void stop();
 };
 
 #endif // PICAM_H

@@ -19,6 +19,7 @@ void CameraWidget::displayImage(QImage newImg) {
 void CameraWidget::paintEvent(QPaintEvent *) {
     QPainter painter(this);
     if(!curImage.isNull()) {
-        painter.drawImage(QPoint(0, 0), curImage);
+        QImage s = curImage.scaled(size(), Qt::KeepAspectRatio);
+        painter.drawImage(QPoint(width() / 2 - s.width() / 2, 0), s);
     }
 }

@@ -12,14 +12,14 @@ void CameraWidget::startWorker() {
 }
 
 void CameraWidget::displayImage(QImage newImg) {
-    curImage = newImg;
+    curImage = QPixmap::fromImage(newImg);
     repaint();
 }
 
 void CameraWidget::paintEvent(QPaintEvent *) {
     QPainter painter(this);
     if(!curImage.isNull()) {
-        QImage s = curImage.scaled(size(), Qt::KeepAspectRatio);
-        painter.drawImage(QPoint(width() / 2 - s.width() / 2, 0), s);
+        QPixmap s = curImage.scaled(size(), Qt::KeepAspectRatio);
+        painter.drawPixmap(QPoint(width() / 2 - s.width() / 2, 0), s);
     }
 }

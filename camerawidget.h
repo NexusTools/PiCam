@@ -11,7 +11,7 @@ class CameraWidget : public QWidget
 public:
     explicit CameraWidget(QWidget *parent = 0);
     void paintEvent(QPaintEvent *);
-    QImage curImage;
+    QPixmap curImage;
     void startWorker();
 private:
     CameraWorker worker;

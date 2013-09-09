@@ -21,7 +21,7 @@ void PiCam::start() {
         errMsg.setStandardButtons(QMessageBox::Ok);
         errMsg.exec();
     } else {
-        ui->cameraWidget->repaint(); //TODO: Actual thread start here.
+        ui->cameraWidget->startWorker();
     }
     if(success) {
         connect(ui->actionToggle, SIGNAL(triggered()), this, SLOT(stop()));

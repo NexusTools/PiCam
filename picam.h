@@ -2,6 +2,7 @@
 #define PICAM_H
 
 #include <QMainWindow>
+#include <QDebug>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 

@@ -2,8 +2,8 @@
 #define CAMERAWIDGET_H
 
 #include <QWidget>
-#include <QThread>
 #include "picam.h"
+#include "cameraworker.h"
 
 class CameraWidget : public QWidget
 {
@@ -11,7 +11,12 @@ class CameraWidget : public QWidget
 public:
     explicit CameraWidget(QWidget *parent = 0);
     void paintEvent(QPaintEvent *);
-    static QImage IplImage2QImage(const IplImage *);
+    QImage curImage;
+    void startWorker();
+private:
+    CameraWorker worker;
+public slots:
+    void displayImage(QImage);
 };
 
 #endif // CAMERAWIDGET_H

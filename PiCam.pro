@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         picam.cpp \
-    camerawidget.cpp
+    camerawidget.cpp \
+    cameraworker.cpp
 
 HEADERS  += picam.h \
-    camerawidget.h
+    camerawidget.h \
+    cameraworker.h
 
 FORMS    += picam.ui
 

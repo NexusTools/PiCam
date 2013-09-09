@@ -2,7 +2,9 @@
 #define PICAM_H
 
 #include <QMainWindow>
-class CvCapture;
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
 namespace Ui {
 class PiCam;
 }

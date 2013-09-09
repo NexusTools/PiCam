@@ -1,13 +1,10 @@
 #include "picam.h"
 #include "ui_picam.h"
 #include <QMessageBox>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
 CvCapture *PiCam::captureDevice = 0;
 PiCam::PiCam(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::PiCam)
-{
+    ui(new Ui::PiCam) {
     ui->setupUi(this);
     connect(ui->actionToggle, SIGNAL(triggered()), this, SLOT(start()));
 }
@@ -20,9 +17,11 @@ void PiCam::start() {
         success = false;
         QMessageBox errMsg;
         errMsg.setInformativeText("Error");
-        errMsg.setText("There's been an error while initaiting the camera device."); //TODO: Non-vague message?
+        errMsg.setText("There's been an error while initiating the camera device."); //TODO: Non-vague message?
         errMsg.setStandardButtons(QMessageBox::Ok);
         errMsg.exec();
+    } else {
+        ui->cameraWidget->repaint(); //TODO: Actual thread start here.
     }
     if(success) {
         connect(ui->actionToggle, SIGNAL(triggered()), this, SLOT(stop()));
@@ -41,7 +40,10 @@ void PiCam::stop() {
 }
 
 
-PiCam::~PiCam()
-{
+PiCam::~PiCam() {
+    if(captureDevice != 0) {
+        cvReleaseCapture(&captureDevice);
+        captureDevice = 0;
+    }
     delete ui;
 }
